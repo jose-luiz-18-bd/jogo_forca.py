@@ -1,11 +1,28 @@
 import getpass
 
+import random
+
+# Lista de palavras que podem ser a palavra secreta
+palavras_possiveis = [
+    "python",
+    "abacaxi",
+    "computador",
+    "teclado",
+    "banana",
+    "montanha",
+    "cachorro",
+    "tartaruga",
+]
+
+# Sorteia uma palavra da lista
+palavra_secreta = random.choice(palavras_possiveis).lower()
+
 # getpass deixará a palavra secreta oculta
-palavra_secreta = getpass.getpass("Digite uma palavra 'SECRETA': ")
+# palavra_secreta = getpass.getpass("Digite uma palavra 'SECRETA': ")
 print("___________________________________________________")
 print()
 letras_digitadas = []
-chances = 3
+chances = 7
 
 while True:
     # se o número de chances chegar a 0 exibe a mensagem e encerra a aplicação
@@ -14,7 +31,7 @@ while True:
         print()
         break
 
-    letra = input("Digite uma letra: ")
+    letra = input("Digite uma letra: ").lower()
     print()
     if len(letra) > 1:
         print("Não vale, digite apenas 1 letra!!!")
@@ -42,7 +59,7 @@ while True:
     if letra_secreta_temporaria == palavra_secreta:
         print("WOW, VOCÊ ACERTOU A PALAVRA 'SECRETA'!!!!")
         print()
-        print(f"A palavra secreta é '{palavra_secreta}'")
+        print(f"A palavra secreta que não é mais secreta é '{palavra_secreta}'")
         print("___________________________________________________")
         break
     else:
